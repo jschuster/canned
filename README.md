@@ -164,7 +164,26 @@ the line above.
 	{
 	    "response": "response for 123"
 	}
+  
+Even more sophistic usecases are possible
+  
+    //! statusCode: 401
+    {
+        "response": "unauthorized"
+    }
 
+    //! statusCode: 200
+    //! header: {"authorization": "Basic YWJjOmFiYw=="}
+    {
+        "response": "logged in"
+    }
+
+This will answer a normal request with a 401 and will bring up a authentication 
+challenge in the client. If the client answers correctly with the login 
+credentials (here abc:abc), canned will answer with the status code 200.
+Otherwise the 401 will be responded again.
+This allows testing some basic authenciation mechanism.
+    
 How about some docs inside for the responses?
 ---------------------------------------------
 Most content types support comments natively, like html or javascript. Sadly the
