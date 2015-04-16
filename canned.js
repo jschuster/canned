@@ -78,7 +78,7 @@ Canned.prototype.parseMetaData = function(response) {
   var that = this
 
   var optionsMatch = new RegExp(/\/\/!.*[statusCode|contentType]/g)
-  var requestMatch = new RegExp(/\/\/! [body|params|header]+: ([\w {}":,@.]*)/g)
+  var requestMatch = new RegExp(/\/\/! [body|params|header]+: ([\w {}\S]*)/g)
 
   lines.forEach(function(line) {
     if(line.indexOf("//!") === 0) { // special comment line
